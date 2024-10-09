@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "0JIOdJHHVU0=",
+  "success": true,
+  "projectFilePath": "P:\\C#\\JournalAbstractScraper_Console\\JournalAbstractScraper_Console\\JournalAbstractScraper_Console.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\herbs\\.nuget\\packages\\htmlagilitypack\\1.11.67\\htmlagilitypack.1.11.67.nupkg.sha512"
+  ],
+  "logs": []
+}

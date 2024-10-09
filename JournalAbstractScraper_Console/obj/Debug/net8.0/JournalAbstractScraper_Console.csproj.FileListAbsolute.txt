@@ -1,0 +1,17 @@
+P:\C#\JournalAbstractScraper_Console\JournalAbstractScraper_Console\bin\Debug\net8.0\JournalAbstractScraper_Console.exe
+P:\C#\JournalAbstractScraper_Console\JournalAbstractScraper_Console\bin\Debug\net8.0\JournalAbstractScraper_Console.deps.json
+P:\C#\JournalAbstractScraper_Console\JournalAbstractScraper_Console\bin\Debug\net8.0\JournalAbstractScraper_Console.runtimeconfig.json
+P:\C#\JournalAbstractScraper_Console\JournalAbstractScraper_Console\bin\Debug\net8.0\JournalAbstractScraper_Console.dll
+P:\C#\JournalAbstractScraper_Console\JournalAbstractScraper_Console\bin\Debug\net8.0\JournalAbstractScraper_Console.pdb
+P:\C#\JournalAbstractScraper_Console\JournalAbstractScraper_Console\obj\Debug\net8.0\JournalAbstractScraper_Console.GeneratedMSBuildEditorConfig.editorconfig
+P:\C#\JournalAbstractScraper_Console\JournalAbstractScraper_Console\obj\Debug\net8.0\JournalAbstractScraper_Console.AssemblyInfoInputs.cache
+P:\C#\JournalAbstractScraper_Console\JournalAbstractScraper_Console\obj\Debug\net8.0\JournalAbstractScraper_Console.AssemblyInfo.cs
+P:\C#\JournalAbstractScraper_Console\JournalAbstractScraper_Console\obj\Debug\net8.0\JournalAbstractScraper_Console.csproj.CoreCompileInputs.cache
+P:\C#\JournalAbstractScraper_Console\JournalAbstractScraper_Console\obj\Debug\net8.0\JournalAbstractScraper_Console.dll
+P:\C#\JournalAbstractScraper_Console\JournalAbstractScraper_Console\obj\Debug\net8.0\refint\JournalAbstractScraper_Console.dll
+P:\C#\JournalAbstractScraper_Console\JournalAbstractScraper_Console\obj\Debug\net8.0\JournalAbstractScraper_Console.pdb
+P:\C#\JournalAbstractScraper_Console\JournalAbstractScraper_Console\obj\Debug\net8.0\JournalAbstractScraper_Console.genruntimeconfig.cache
+P:\C#\JournalAbstractScraper_Console\JournalAbstractScraper_Console\obj\Debug\net8.0\ref\JournalAbstractScraper_Console.dll
+P:\C#\JournalAbstractScraper_Console\JournalAbstractScraper_Console\bin\Debug\net8.0\HtmlAgilityPack.dll
+P:\C#\JournalAbstractScraper_Console\JournalAbstractScraper_Console\obj\Debug\net8.0\JournalAbstractScraper_Console.csproj.AssemblyReference.cache
+P:\C#\JournalAbstractScraper_Console\JournalAbstractScraper_Console\obj\Debug\net8.0\JournalA.982B4B87.Up2Date
