@@ -9,7 +9,7 @@ namespace JournalAbstractScraper_Console.AbstractParsers
     internal interface IParseAbstracts
     {
         /// <summary>
-        /// Parse the high-end pagination result of an html page. I.e. there are 45 pages of results to parse.
+        /// Parse the high-end pagination result of an html page. I.e. there are 45 pages of results to parse. Returns -1 if fails.
         /// </summary>
         public int GetPaginationCount(string rawHtml);
 

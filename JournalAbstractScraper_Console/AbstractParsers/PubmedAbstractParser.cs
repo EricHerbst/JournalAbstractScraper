@@ -2,7 +2,6 @@
 using HtmlAgilityPack;
 using JournalAbstractScraper_Console.Models;
 using System.Text;
-using static System.Collections.Specialized.BitVector32;
 
 namespace JournalAbstractScraper_Console.AbstractParsers
 {
@@ -21,10 +20,10 @@ namespace JournalAbstractScraper_Console.AbstractParsers
             htmlDoc.LoadHtml(rawHtml);
 
             HtmlNode paginationSection = htmlDoc.DocumentNode.SelectSingleNode(".//label[contains(@class, 'of-total-pages')]");
-            if (paginationSection == null) return 1;
+            if (paginationSection == null) return -1;
             
             string pageNumbers = string.Concat(paginationSection.InnerHtml?.Where(char.IsDigit));
-            if (pageNumbers == null) return 1;
+            if (pageNumbers == null) return -1;
 
             try
             {
@@ -32,7 +31,7 @@ namespace JournalAbstractScraper_Console.AbstractParsers
             }
             catch
             {
-                return 1;
+                return -1;
             }
         }
 

@@ -12,16 +12,22 @@ namespace JournalAbstractScraper_Console
         {
             Console.WriteLine("Beginning Abstract Retrieval... \n");
 
+            int articlesParsed = await ScrapeJournalAbstracts();
+
+            Console.WriteLine($"Abstract Retrieval Completed for {articlesParsed} results \n");
+        }
+
+        private static async Task<int> ScrapeJournalAbstracts()
+        {
             IRetrieveHtml htmlRetriever = new PubMedHtmlRetriever();
             IParseAbstracts htmlParser = new PubmedAbstractParser();
-            
+
             SearchInstructions searchInstructions = GetSearchInstructions();
             List<string> htmlToParse = await htmlRetriever.GetHtmlPagesToParse(searchInstructions, htmlParser.GetPaginationCount);
-
             if (htmlToParse == null || htmlToParse.Count <= 0)
             {
                 Console.WriteLine("Error: no html to parse");
-                return;
+                return 0;
             }
 
             List<JournalArticle> articles = AssembleAbstracts(htmlParser, htmlToParse);
@@ -29,7 +35,7 @@ namespace JournalAbstractScraper_Console
             string fileName = searchInstructions.SearchTerm + " - Abstract Results";
             ExportResults(articles, fileName);
 
-            Console.WriteLine($"Abstract Retrieval Completed for {articles.Count} results");
+            return articles.Count;
         }
 
         // Manipulating this currently for different search params but could expand if UI is desired
@@ -45,6 +51,7 @@ namespace JournalAbstractScraper_Console
             return searchInstructions;
         }
 
+        // Convert each html page into a list of journal articles and merge them into one list
         private static List<JournalArticle> AssembleAbstracts(IParseAbstracts htmlParser, List<string> htmlToParse)
         {
             List<JournalArticle> articles = new List<JournalArticle>();
@@ -58,7 +65,7 @@ namespace JournalAbstractScraper_Console
 
         private static void ExportResults(List<JournalArticle> articles, string fileName)
         {
-            if (articles.Count <= 0)
+            if (articles == null || articles.Count <= 0)
             {
                 Console.WriteLine("Error: no articles to export");
                 return;
@@ -67,7 +74,5 @@ namespace JournalAbstractScraper_Console
             IExportJournalAbstracts exporter = new CSVExporter();
             exporter.ExportAbstracts(articles, fileName);
         }
-
-
     }
 }

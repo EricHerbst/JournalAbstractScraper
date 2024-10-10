@@ -19,29 +19,27 @@ namespace JournalAbstractScraper_Console.SearchBuilders
         }
 
         public async Task<List<string>> GetHtmlPagesToParse(SearchInstructions searchInstructions, Func<string, int> GetPaginationCountFunc)
-        {
+        {          
             List<string> htmlToParse = new List<string>();
-            string initialSearchTerm = BuildSearchStringForJournal(searchInstructions);
+
+            string initialSearchTerm = BuildSearchUrlForJournal(searchInstructions);
             string initialHtml = await GetWebDataFromSite(initialSearchTerm);
+            if (initialHtml == null) return null;
             htmlToParse.Add(initialHtml);
 
             int paginationCount = GetPaginationCountFunc(initialHtml);
             Console.WriteLine($"Retrieving results for {paginationCount} pages...");
 
-            if (paginationCount == 1)
-                return htmlToParse;         
-
-            // Continue requesting pages. Begin at page 2.
-            List<Task<string>> pageSearchesToAdd = new List<Task<string>>();
-            for (int i = 2; i < paginationCount; i++)
+            if (paginationCount < 0)
             {
-                string searchTerm = BuildSearchStringForJournal(searchInstructions);
-                searchTerm += $"{_pageIndexFilter}{i}";
-
-                var searchTask = GetWebDataFromSite(searchTerm);
-                pageSearchesToAdd.Add(searchTask);
+                Console.WriteLine("Pagination retreival failed, returning first result");
+                return htmlToParse;
             }
 
+            if (paginationCount <= 1)
+                return htmlToParse;
+
+            List<Task<string>> pageSearchesToAdd = CollectAllPagesToSearch(searchInstructions, paginationCount);
             await Task.WhenAll(pageSearchesToAdd).ContinueWith(tasks =>
             {
                 foreach (var data in tasks.Result)
@@ -53,7 +51,24 @@ namespace JournalAbstractScraper_Console.SearchBuilders
             return htmlToParse;
         }
 
-        public string BuildSearchStringForJournal(SearchInstructions searchInstructions)
+        private List<Task<string>> CollectAllPagesToSearch(SearchInstructions searchInstructions, int paginationCount)
+        {
+            // Continue requesting pages. Begin at page 2.
+            List<Task<string>> pageSearchesToAdd = new List<Task<string>>();
+            for (int i = 2; i < paginationCount; i++)
+            {
+                string searchTerm = BuildSearchUrlForJournal(searchInstructions);
+                searchTerm += $"{_pageIndexFilter}{i}";
+
+                var searchTask = GetWebDataFromSite(searchTerm);
+                pageSearchesToAdd.Add(searchTask);
+            }
+
+            return pageSearchesToAdd;
+        }
+
+        // Build the url for the search criterea
+        public string BuildSearchUrlForJournal(SearchInstructions searchInstructions)
         {
             StringBuilder searchString = new StringBuilder();
 
