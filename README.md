@@ -1,5 +1,5 @@
 **The Brief**:
-- My wife was studying to be a American Board of Veterinary Practitioners Canine and Feline Specialist, which required reading ALL article abstracts from several peer reviewed journals over the last 5 years. 
+- My wife was studying for the American Board of Veterinary Practitioners Canine and Feline Specialist exam, which required reading ALL article abstracts from several peer reviewed journals over the last 5 years. 
 - Thus she required hunting down several thousand abstracts for this distinction, and with two young kids, the time to just collect all the required information felt overwhelming and reduced her available study time.
 - Being a loving husband I told her I'd create a small program to collect those for her.
 - Having a background myself in academia (PhD & MSc in brain and muscle metabolism, yeah, big jump, right?), I already knew the important information to collect and where to get it.
